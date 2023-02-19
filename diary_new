@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# AUTHOR: Warren Crutcher
+# github.com/warrenlc
+
+# Get user input for diary and author name
+read -p "Name your new diary (use underscore for spaces, no file extension): " diary_name
+read -p "Give an author name: " author
+
+# Make the file and add the Title and author name
+filename=./"$diary_name".ms
+touch $filename
+echo ".TL" > $filename
+echo $diary_name >> $filename
+echo ".AU" >> $filename
+echo "$author" >> $filename
+dir=$(pwd)
+echo "Diary created at $dir."

@@ -1,0 +1,41 @@
+.TH DIARY 1 "19 Feb 23"
+.SH NAME
+diary - Make and store a simple diary and export to a pdf
+.SH SYNOPSIS
+.B 
+diary <new> | <entry> | <pdf>
+.SH DESCRIPTION
+.B
+diary allows the a user to create a diary, add diary entries 
+and make a pdf of the diary. It is required to give one of 
+new, entry, or pdf when calling diary. This program is designed
+to render non-English as well as English characters to the pdf.
+.SS Arguments
+.TP
+.B 
+new  
+Make a new diary. This will ask for the diary name and an author name.
+Saves the diary as a .ms file in the current directory.
+.TP
+.B 
+entry 
+Add an entry to an existing diary. This will ask which diary (in case you have several)
+to update whereupon a new entry will be added along with the current date.
+Use tab-completion if necessary for the correct file name. 
+Expects a *.ms file name. 
+.TP
+.B 
+pdf 
+Create a pdf for your diary. Open the pdf with your preferred pdf-viewer.
+.SH FILES
+.TP 
+diary, diary_new, diary_entry, diary_pdf.
+The main file is diary, which actually calls on either diary_new, diary_entry, 
+or diary_pdf given the command entered. These programs can also be used
+stand-alone should you already have a .ms file you wish to turn into a pdf
+or another file to which you wish to add a dated-entry.
+.SH BUGS
+contact me at github: github.com/warrenlc
+.SH AUTHOR
+Warren Crutcher
+

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# AUTHOR: Warren Crutcher
+# github.com/warrenlc
+
+echo "Which diary do you want to turn into a pdf?"
+while :
+do
+    status=$?
+    read -e -p " --> " diary_file
+    
+    if test -f "$diary_file"; then 
+        if grep -q "^\.PP$" $diary_file; then
+            echo "Making pdf of $diary_file..."
+            pdf_file=${diary_file/.ms/.pdf}
+            preconv $diary_file | groff -ms -Tpdf > $pdf_file 
+            echo "$pdf_file is ready."
+            break
+        else 
+            echo "Could not make pdf. Most likely your .ms file has no entries."
+        fi
+    fi
+
+    if [[ "$diary_file" == "quit" ]]; then
+        echo "exiting..."
+        break
+    else
+        echo "Try another filename or type 'quit' to exit."
+    fi
+done

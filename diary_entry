@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# AUTHOR: Warren Crutcher
+# Use as you wish! I would be very interested
+# in suggestions for improvements, etc. 
+# github.com/warrenlc
+
+
+
+#Find the name of the diary to edit
+read -e -p "To which diary do you want to make an entry? " diary_file
+
+# Prepare the diary:
+echo ".SH" >> $diary_file
+
+# This adds today's date
+echo "\*[DY]" >> $diary_file
+
+# Get the input
+echo "Make your entry for $diary_file. Type 'end' on own line when finished:"
+echo ".PP" >> $diary_file
+
+while :
+do
+    read -p "--> " line
+    if [[ "$line" == "end" ]]; then
+        break
+    fi
+    echo "$line" >> $diary_file
+done
