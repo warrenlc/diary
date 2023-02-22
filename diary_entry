@@ -13,8 +13,8 @@ read -e -p "To which diary do you want to make an entry? " diary_file
 # Prepare the diary:
 echo ".SH" >> $diary_file
 
-# This adds today's date
-echo "\*[DY]" >> $diary_file
+read -e -p "Enter today's date: " date
+echo $date >> $diary_file
 
 # Get the input
 echo "Make your entry for $diary_file. Type 'end' on own line when finished:"
