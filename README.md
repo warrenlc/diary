@@ -25,7 +25,15 @@ If you are unsure of your MANPATH one thing you might try (from ~ ):
     $ find ../../ | grep ".manpath"
 
 Testing/bugs:
-I haven't had time to test this vigorously, as I literally made it to 
-make doing homework easier. Use at your own pleasure. 
- 
+** MacOs:
+    the command: $ diary pdf 
+    fails on MacOs due to 'preconv' not existing.
+    if this is the case, try updating groff with:
+        $ brew install groff
+    
+** Archlinux:
+    No problems yet.
+
+** Windows:
+    Ha! Never.
 
